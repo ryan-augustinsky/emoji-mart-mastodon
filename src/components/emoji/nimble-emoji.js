@@ -209,6 +209,7 @@ const NimbleEmoji = (props) => {
         onClick={(e) => _handleClick(e, props)}
         onMouseEnter={(e) => _handleOver(e, props)}
         onMouseLeave={(e) => _handleLeave(e, props)}
+        onContextMenu={(e) => e.preventDefault()}
         aria-label={label}
         title={title}
         className={className}

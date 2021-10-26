@@ -34,11 +34,11 @@ export default class Category extends React.Component {
     this.memoizeSize()
 
     this.lazyloadImages = []
-    this.lazyload()
+    this.addLazyloadObserver()
   }
 
   componentDidUpdate() {
-    this.lazyload()
+    this.addLazyloadObserver()
   }
 
   componentWillUnmount() {
@@ -108,7 +108,7 @@ export default class Category extends React.Component {
     }
   }
 
-  lazyload() {
+  addLazyloadObserver() {
     this.removeLazyloadObserver()
     this.lazyloadImages = this.container.querySelectorAll(".lazy");
 
@@ -121,6 +121,10 @@ export default class Category extends React.Component {
     this.lazyloadImages.forEach((image) => {
       this.imageObserver.unobserve(image);
     })
+  }
+
+  handleOnContextMenu(e) {
+    e.preventDefault();
   }
 
   handleScroll(scrollTop) {
