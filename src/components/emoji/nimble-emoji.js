@@ -223,6 +223,7 @@ const NimbleEmoji = (props) => {
             className="lazy"
             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP89B8AAukB8/71MdcAAAAASUVORK5CYII="
             data-src={imageUrl}
+            onContextMenu={(e) => e.preventDefault()}
           />
           :
           <span style={style}>{children}</span>
