@@ -1,6 +1,6 @@
 {
   "name": "emoji-mart-lazyload",
-  "version": "3.0.1j",
+  "version": "3.0.1k",
   "description": "Customizable Slack-like emoji picker for React",
   "main": "dist/index.js",
   "module": "dist-es/index.js",
