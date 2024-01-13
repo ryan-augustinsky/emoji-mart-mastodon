@@ -3,7 +3,7 @@ var fs = require('fs'),
   inflection = require('inflection'),
   mkdirp = require('mkdirp')
 
-var { compress } = require('../dist/utils/data')
+var { compress, minifyForMastodon } = require('../dist/utils/data')
 
 var categories = [
   ['Smileys & Emotion', 'smileys'],
@@ -17,7 +17,7 @@ var categories = [
   ['Flags', 'flags'],
 ]
 
-var sets = ['apple', 'facebook', 'google', 'twitter']
+var sets = ['apple', 'facebook', 'google', 'twitter', 'mastodon']
 
 module.exports = (options) => {
   delete require.cache[require.resolve('emoji-datasource')]
@@ -50,6 +50,7 @@ module.exports = (options) => {
 
     if (options.sets) {
       var keepEmoji = false
+      datum.has_img_mastodon = datum.has_img_twitter
 
       options.sets.forEach((set) => {
         if (keepEmoji) return
@@ -130,6 +131,7 @@ module.exports = (options) => {
 
   data.categories.unshift(smileysAndPeople)
   data.categories.splice(1, 2)
+  data = minifyForMastodon(data)
 
   fs.writeFile(options.output, JSON.stringify(data), (err) => {
     if (err) throw err
