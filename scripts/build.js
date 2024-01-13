@@ -131,7 +131,10 @@ module.exports = (options) => {
 
   data.categories.unshift(smileysAndPeople)
   data.categories.splice(1, 2)
-  data = minifyForMastodon(data)
+
+  if (options.minifyForMastodon) {
+    data = minifyForMastodon(data)
+  }
 
   fs.writeFile(options.output, JSON.stringify(data), (err) => {
     if (err) throw err
