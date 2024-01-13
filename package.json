@@ -1,12 +1,12 @@
 {
-  "name": "emoji-mart-lazyload",
+  "name": "emoji-mart-mastodon",
   "version": "3.0.1k",
   "description": "Customizable Slack-like emoji picker for React",
   "main": "dist/index.js",
   "module": "dist-es/index.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:mashirozx/emoji-mart.git"
+    "url": "git@github.com:ryan-augustinsky/emoji-mart-mastodon.git"
   },
   "keywords": [
     "react",
@@ -16,16 +16,16 @@
   "author": "Etienne Lemay",
   "license": "BSD-3-Clause",
   "bugs": {
-    "url": "https://github.com/mashirozx/emoji-mart/issues"
+    "url": "https://github.com/ryan-augustinsky/emoji-mart-mastodon/issues"
   },
-  "homepage": "https://github.com/mashirozx/emoji-mart",
+  "homepage": "https://github.com/ryan-augustinsky/emoji-mart-mastodon",
   "dependencies": {
     "@babel/runtime": "^7.0.0",
     "intersection-observer": "^0.12.0",
     "prop-types": "^15.6.0"
   },
   "peerDependencies": {
-    "react": "^0.14.0 || ^15.0.0-0 || ^16.0.0 || ^17.0.0"
+    "react": "^0.14.0 || ^15.0.0-0 || ^16.0.0 || ^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
