@@ -15,7 +15,7 @@ const EmojiPropTypes = {
   sheetSize: PropTypes.oneOf([16, 20, 32, 64]),
   sheetColumns: PropTypes.number,
   sheetRows: PropTypes.number,
-  set: PropTypes.oneOf(['apple', 'google', 'twitter', 'facebook']),
+  set: PropTypes.oneOf(['apple', 'google', 'twitter', 'facebook', 'mastodon']),
   size: PropTypes.number.isRequired,
   emoji: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
 }

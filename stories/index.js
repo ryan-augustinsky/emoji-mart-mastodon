@@ -22,7 +22,7 @@ import data from '../data/all.json'
 import '../css/emoji-mart.css'
 
 const THEMES = ['auto', 'light', 'dark']
-const SETS = ['apple', 'google', 'twitter', 'facebook']
+const SETS = ['apple', 'google', 'twitter', 'facebook', 'mastodon']
 const CUSTOM_EMOJIS = [
   {
     name: 'Octocat',
