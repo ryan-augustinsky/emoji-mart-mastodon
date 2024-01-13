@@ -5,6 +5,7 @@ const mapping = {
   has_img_apple: 'd',
   has_img_google: 'e',
   has_img_twitter: 'f',
+  has_img_mastodon: 'g',
   has_img_facebook: 'h',
   keywords: 'j',
   sheet: 'k',
@@ -74,6 +75,45 @@ const compress = (emoji) => {
   }
 }
 
+const minifyForMastodon = (data, setCompressed=true) => {
+  if (setCompressed) {
+    data.compressed = true
+  }
+
+  const minifyEmoji = (emoji) => {
+    if (emoji.skin_variations) {
+      emoji.skin_variations = minifyForMastodon({ "emojis": emoji.skin_variations }, false)["emojis"]
+    }
+
+    const deleteKeys = ['has_img_apple', 'has_img_google', 'has_img_twitter', 'has_img_mastodon', 'has_img_facebook', 'added_in', 'image', 'non_qualified']
+    // delete the keys that are not needed for mastodon inside the emoji object
+    deleteKeys.forEach((key) => {
+      delete emoji[key]
+    });
+
+    // now get the mapped values using the deleteKeys array
+    const mappedDeleteKeys = deleteKeys.map((key) => {
+      return mapping[key]
+    });
+
+    // now delete the mapped keys
+    mappedDeleteKeys.forEach((key) => {
+      delete emoji[key]
+    });
+
+    console.log(emoji)
+    return emoji
+  }
+
+  for (let id in data.emojis) {
+    let emoji = data.emojis[id]
+    // if emoji has a key called skin_variations, then recursively call minifyEmoji on each of its skin_variations
+    emoji = minifyEmoji(emoji)
+  }
+
+  return data
+}
+
 const uncompress = (data) => {
   data.compressed = false
 
@@ -101,4 +141,4 @@ const uncompress = (data) => {
   }
 }
 
-export { buildSearch, compress, uncompress }
+export { buildSearch, compress, minifyForMastodon, uncompress }
