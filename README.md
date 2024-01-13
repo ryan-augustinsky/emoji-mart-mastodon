@@ -1,3 +1,6 @@
+## Reduce your Mastodon js bundle size by more than 300kb
+This is a fork of [emoji-mart-lazyload](https://www.npmjs.com/package/emoji-mart-lazyload), but with better compression/minification of the json that gets embedded in your bundle. There were many data fields that were un-used.
+
 <div align="center">
   <br><b>Emoji Mart</b> is a Slack-like customizable<br>emoji picker component for React
   <br><a href="https://missive.github.io/emoji-mart">Demo</a> • <a href="https://github.com/missive/emoji-mart/blob/master/CHANGELOG.md">Changelog</a>
